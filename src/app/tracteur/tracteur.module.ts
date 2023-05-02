@@ -14,12 +14,14 @@ import { TracteurComponent } from './tracteur.component';
 import { TracteurRoutingModule } from './tracteur-routing.module';
 import { TracteurService } from './services/tracteur.service';
 import { TracteurListComponent } from './pages/tracteur-list/tracteur-list.component';
+import { TracteurFormComponent } from './components/tracteur-form/tracteur-form.component';
 
 
 @NgModule({
   declarations: [
     TracteurComponent,
-    TracteurListComponent
+    TracteurListComponent,
+    TracteurFormComponent
   ],
   imports: [
     CommonModule,
