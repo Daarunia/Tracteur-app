@@ -13,6 +13,14 @@ const routes: Routes = [
     loadChildren: () => import('./student/student.module').then(m => m.StudentModule)
   },
   {
+    path: 'tracteurs',
+    loadChildren: () => import('./tracteur/tracteur.module').then(m => m.TracteurModule)
+  },
+  {
+    path: 'marques',
+    loadChildren: () => import('./marque/marque.module').then(m => m.MarqueModule)
+  },
+  {
   path : '**',
   component: NotFoundComponent
   }
