@@ -15,6 +15,7 @@ import { TracteurRoutingModule } from './tracteur-routing.module';
 import { TracteurService } from './services/tracteur.service';
 import { TracteurListComponent } from './pages/tracteur-list/tracteur-list.component';
 import { TracteurFormComponent } from './components/tracteur-form/tracteur-form.component';
+import { MarqueService } from '../marque/services/marque.service';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { TracteurFormComponent } from './components/tracteur-form/tracteur-form.
     SharedModule
   ],
   providers: [
-    TracteurService
+    TracteurService,
+    MarqueService
   ]
 })
 export class TracteurModule { }
