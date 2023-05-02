@@ -11,11 +11,15 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { MarqueRoutingModule } from './marque-routing.module';
+import { MarqueService } from './services/marque.service';
+import { MarqueListComponent } from './pages/marque-list/marque-list.component';
+import { MarqueComponent } from './marque.component';
 
 
 @NgModule({
   declarations: [
-
+    MarqueComponent,
+    MarqueListComponent
   ],
   imports: [
     MarqueRoutingModule,
@@ -32,7 +36,7 @@ import { MarqueRoutingModule } from './marque-routing.module';
     SharedModule
   ],
   providers: [
-    MarqueModule
+    MarqueService
   ]
 })
 export class MarqueModule { }

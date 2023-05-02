@@ -18,9 +18,9 @@ export class StudentListComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = ['firstName', 'lastName', 'class', 'email', 'update', 'delete'];
   students$: Observable<Student[]>;
   private destroy$: Subject<boolean> = new Subject<boolean>();
-  
+
   constructor(private studentService: StudentService, private dialog: MatDialog, private _snackBar: MatSnackBar, private router: Router){}
- 
+
   ngOnInit(): void {
     this.students$ = this.studentService.get();
   }
@@ -86,6 +86,6 @@ export class StudentListComponent implements OnInit, OnDestroy {
   }
 
   showStudentDetails(studentId:number){
-    this.router.navigate(['/student/'+studentId]);
+    this.router.navigate(['/students/'+studentId]);
   }
 }

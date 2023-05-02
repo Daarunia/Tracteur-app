@@ -12,11 +12,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { TracteurComponent } from './tracteur.component';
 import { TracteurRoutingModule } from './tracteur-routing.module';
+import { TracteurService } from './services/tracteur.service';
+import { TracteurListComponent } from './pages/tracteur-list/tracteur-list.component';
 
 
 @NgModule({
   declarations: [
-    TracteurComponent
+    TracteurComponent,
+    TracteurListComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +36,7 @@ import { TracteurRoutingModule } from './tracteur-routing.module';
     SharedModule
   ],
   providers: [
-
+    TracteurService
   ]
 })
 export class TracteurModule { }
