@@ -1,0 +1,4 @@
+<p>{{student$ | async | json }}</p>
+<app-student-card [selectedStudent]="student$ | async" (received)="showReceivedValue($event)"></app-student-card>
+<button mat-fab color="warn" (click)="goBack()">Back</button>
+ 
