@@ -4,7 +4,6 @@ import { Tracteur } from '../../models/tracteur';
 import { TracteurService } from '../../services/tracteur.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { Marque } from 'src/app/marque/models/marque';
 
 @Component({
   selector: 'app-tracteur-details',

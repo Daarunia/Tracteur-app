@@ -64,7 +64,7 @@
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="showTracteurDetails(row.id); show(row.marque.id);"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="showTracteurDetails(row.id);"></tr>
     </table>
     <div class="btn-holder">
       <button mat-fab color="warn" (click)="openTracteurForm()"><mat-icon>add</mat-icon></button>

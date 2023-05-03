@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { MarqueService } from '../../services/marque.service';
 import { GenericPopupComponent } from 'src/app/shared/components/generic-popup/generic-popup.component';
+import { MarqueFormComponent } from '../../components/marque-form/marque-form.component';
 
 @Component({
   selector: 'app-marque-list',
@@ -13,6 +14,12 @@ import { GenericPopupComponent } from 'src/app/shared/components/generic-popup/g
   styleUrls: ['./marque-list.component.sass']
 })
 export class MarqueListComponent {
+  displayedColumns: string[] = [
+    'name',
+    'releaseDate',
+    'update',
+    'delete',
+  ];
   marques$: Observable<Marque[]>;
   private destroy$: Subject<boolean> = new Subject<boolean>();
 
@@ -31,7 +38,7 @@ export class MarqueListComponent {
     const ref = this.dialog.open(GenericPopupComponent, {
       data: {
         title: 'Confirmation de suppression',
-        message: 'êtes-vous sûr de vouloir supprimer cet étudiant ?',
+        message: 'êtes-vous sûr de vouloir supprimer cette marque ?',
         typeMessage: 'none',
         yesButtonVisible: true,
         noButtonVisible: true,
@@ -57,5 +64,29 @@ export class MarqueListComponent {
             });
         }
       });
+  }
+
+  openMarqueForm(marque?: Marque) {
+    const dialogRef = this.dialog.open(MarqueFormComponent, {
+      height: '85%',
+      width: '60%',
+      data: {
+        isCreateForm: marque ? false : true,
+        marque: marque ? marque : undefined
+      }
+    });
+
+    dialogRef
+      .afterClosed()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((result) => {
+        if (result) {
+          this.fetchData();
+        }
+      });
+  }
+
+  showMarqueDetails(marqueId:number){
+    this.router.navigate(['/marques/'+marqueId]);
   }
 }

@@ -14,14 +14,22 @@ import { MarqueRoutingModule } from './marque-routing.module';
 import { MarqueService } from './services/marque.service';
 import { MarqueListComponent } from './pages/marque-list/marque-list.component';
 import { MarqueComponent } from './marque.component';
+import { MarqueFormComponent } from './components/marque-form/marque-form.component';
+import { MarqueCardComponent } from './components/marque-card/marque-card.component';
+import { MarqueDetailsComponent } from './pages/marque-details/marque-details.component';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
   declarations: [
     MarqueComponent,
-    MarqueListComponent
+    MarqueListComponent,
+    MarqueFormComponent,
+    MarqueCardComponent,
+    MarqueDetailsComponent
   ],
   imports: [
+    MatCardModule,
     MarqueRoutingModule,
     CommonModule,
     MatTableModule,

@@ -104,8 +104,4 @@ export class TracteurListComponent {
   showTracteurDetails(tracteurId:number){
     this.router.navigate(['/tracteurs/'+tracteurId]);
   }
-
-  show(marqueId:number){
-    console.log(marqueId);
-  }
 }
