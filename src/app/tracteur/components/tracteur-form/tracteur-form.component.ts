@@ -81,9 +81,9 @@ export class TracteurFormComponent implements OnDestroy {
 
   onSubmit() {
     if (this.tracteurForm.valid) {
-      this.tracteurForm.value.releaseDate = new Date(
-        this.tracteurForm.value.releaseDate
-      ).toISOString();
+      const releaseDate = new Date(this.tracteurForm.value.releaseDate);
+      releaseDate.setDate(releaseDate.getDate() + 1);
+      this.tracteurForm.value.releaseDate = releaseDate.toISOString();
       if (this.data.isCreateForm) {
         this.tracteurForm.value.id = Date.now() + Math.random();
         this.tracteurService

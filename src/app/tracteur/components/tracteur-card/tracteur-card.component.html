@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-title>Détails du tracteur</mat-card-title>
+  <mat-card-content>
+    <table>
+      <tr>
+        <th>Modèle</th>
+        <td>{{ selectedTracteur?.model }}</td>
+      </tr>
+      <tr>
+        <th>Puissance</th>
+        <td>{{ selectedTracteur?.power }}</td>
+      </tr>
+      <tr>
+        <th>Capacité de levage</th>
+        <td>{{ selectedTracteur?.liftingCapacity }}</td>
+      </tr>
+      <tr>
+        <th>Poids</th>
+        <td>{{ selectedTracteur?.weight }}</td>
+      </tr>
+      <tr>
+        <th>Date de sortie</th>
+        <td>{{ selectedTracteur?.releaseDate | date }}</td>
+      </tr>
+    </table>
+  </mat-card-content>
+</mat-card>
+
+

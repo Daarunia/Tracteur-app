@@ -17,6 +17,7 @@ export class StudentDetailsComponent implements OnInit{
   constructor(private route: ActivatedRoute, private studentService: StudentService, private location: Location){
     this.studentId = +this.route.snapshot.paramMap.get('id') ;
   }
+
   ngOnInit(): void {
     if(this.studentId){
       this.student$ = this.studentService.getById(this.studentId);

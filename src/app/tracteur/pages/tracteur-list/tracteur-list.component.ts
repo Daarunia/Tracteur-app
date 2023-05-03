@@ -82,7 +82,6 @@ export class TracteurListComponent {
   }
 
   openTracteurForm(tracteur?: Tracteur) {
-    console.log(tracteur);
     const dialogRef = this.dialog.open(TracteurFormComponent, {
       height: '85%',
       width: '60%',
@@ -100,5 +99,13 @@ export class TracteurListComponent {
           this.fetchData();
         }
       });
+  }
+
+  showTracteurDetails(tracteurId:number){
+    this.router.navigate(['/tracteurs/'+tracteurId]);
+  }
+
+  show(marqueId:number){
+    console.log(marqueId);
   }
 }

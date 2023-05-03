@@ -16,15 +16,20 @@ import { TracteurService } from './services/tracteur.service';
 import { TracteurListComponent } from './pages/tracteur-list/tracteur-list.component';
 import { TracteurFormComponent } from './components/tracteur-form/tracteur-form.component';
 import { MarqueService } from '../marque/services/marque.service';
-
+import { TracteurDetailsComponent } from './pages/tracteur-details/tracteur-details.component';
+import { TracteurCardComponent } from './components/tracteur-card/tracteur-card.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
     TracteurComponent,
     TracteurListComponent,
-    TracteurFormComponent
+    TracteurFormComponent,
+    TracteurDetailsComponent,
+    TracteurCardComponent
   ],
   imports: [
+    MatCardModule,
     CommonModule,
     TracteurRoutingModule,
     MatTableModule,

@@ -17,6 +17,11 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
+      <mat-label>Weight</mat-label>
+      <input matInput formControlName="weight" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
       <mat-label>Lifting capacity</mat-label>
       <input matInput formControlName="liftingCapacity" />
     </mat-form-field>
@@ -26,13 +31,13 @@
       <mat-select formControlName="marque">
         <mat-option
           *ngFor="let marque of marques$ | async"
-          [value]="marque.name"
+          [value]="marque.id"
         >
           {{ marque.name }}
         </mat-option>
       </mat-select>
     </mat-form-field>
-    
+
     <mat-form-field appearance="fill">
       <mat-label>Date de réalisation</mat-label>
       <input matInput [matDatepicker]="picker" formControlName="releaseDate" />
@@ -43,6 +48,7 @@
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
   </div>
+
   <mat-dialog-actions align="end">
     <button mat-button type="button" mat-dialog-close>Annuler</button>
     <button
