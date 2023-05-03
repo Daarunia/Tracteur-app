@@ -1,14 +1,5 @@
 {
   "projects": {
-    "default": "lp-dim-angular"
-  },
-  "targets": {
-    "lp-dim-angular": {
-      "hosting": {
-        "iut-app": [
-          "lp-dim-angular"
-        ]
-      }
-    }
+    "default": "tracteur-app"
   }
 }
