@@ -82,6 +82,7 @@ export class TracteurListComponent {
   }
 
   openTracteurForm(tracteur?: Tracteur) {
+    console.log(tracteur);
     const dialogRef = this.dialog.open(TracteurFormComponent, {
       height: '85%',
       width: '60%',
