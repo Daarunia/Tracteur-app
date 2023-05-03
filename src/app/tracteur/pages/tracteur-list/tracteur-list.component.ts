@@ -66,13 +66,13 @@ export class TracteurListComponent {
       });
   }
 
-  openTracteurForm(student?: Tracteur) {
+  openTracteurForm(tracteur: Tracteur) {
     const dialogRef = this.dialog.open(TracteurFormComponent, {
       height: '85%',
       width: '60%',
       data: {
-        isCreateForm: student ? false : true,
-        student: student ? student : undefined
+        isCreateForm: tracteur ? false : true,
+        student: tracteur ? tracteur : undefined
       }
     });
 
