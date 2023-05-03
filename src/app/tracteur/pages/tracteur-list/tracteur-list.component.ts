@@ -8,18 +8,31 @@ import { Router } from '@angular/router';
 import { GenericPopupComponent } from 'src/app/shared/components/generic-popup/generic-popup.component';
 import { TracteurFormComponent } from '../../components/tracteur-form/tracteur-form.component';
 
-
 @Component({
   selector: 'app-tracteur-list',
   templateUrl: './tracteur-list.component.html',
-  styleUrls: ['./tracteur-list.component.sass']
+  styleUrls: ['./tracteur-list.component.sass'],
 })
 export class TracteurListComponent {
-  displayedColumns: string[] = ['model', 'power', 'liftingCapacity', 'weight', 'releaseDate', 'marqueName', 'update','delete'];
+  displayedColumns: string[] = [
+    'model',
+    'power',
+    'liftingCapacity',
+    'weight',
+    'releaseDate',
+    'marqueName',
+    'update',
+    'delete',
+  ];
   tracteurs$: Observable<Tracteur[]>;
   private destroy$: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private tracteurService: TracteurService, private dialog: MatDialog, private _snackBar: MatSnackBar, private router: Router){}
+  constructor(
+    private tracteurService: TracteurService,
+    private dialog: MatDialog,
+    private _snackBar: MatSnackBar,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.tracteurs$ = this.tracteurService.get();
@@ -47,18 +60,20 @@ export class TracteurListComponent {
         yesButtonLabel: 'Oui',
         noButtonLabel: 'Non',
       },
-    })
+    });
 
-    ref.afterClosed()
+    ref
+      .afterClosed()
       .pipe(takeUntil(this.destroy$))
-      .subscribe(result => {
+      .subscribe((result) => {
         if (result) {
-          this.tracteurService.delete(id)
+          this.tracteurService
+            .delete(id)
             .pipe(takeUntil(this.destroy$))
-            .subscribe(result => {
+            .subscribe((result) => {
               this._snackBar.open(result, '', {
                 duration: 2000,
-                panelClass: ['bg-success']
+                panelClass: ['bg-success'],
               });
               this.fetchData();
             });
@@ -66,24 +81,23 @@ export class TracteurListComponent {
       });
   }
 
-  openTracteurForm(tracteur: Tracteur) {
+  openTracteurForm(tracteur?: Tracteur) {
     const dialogRef = this.dialog.open(TracteurFormComponent, {
       height: '85%',
       width: '60%',
       data: {
         isCreateForm: tracteur ? false : true,
-        student: tracteur ? tracteur : undefined
+        tracteur: tracteur ? tracteur : undefined
       }
     });
 
-    dialogRef.afterClosed()
+    dialogRef
+      .afterClosed()
       .pipe(takeUntil(this.destroy$))
-      .subscribe(result => {
+      .subscribe((result) => {
         if (result) {
           this.fetchData();
         }
       });
   }
 }
-
-

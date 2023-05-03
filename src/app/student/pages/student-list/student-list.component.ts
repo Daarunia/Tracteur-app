@@ -35,6 +35,7 @@ export class StudentListComponent implements OnInit, OnDestroy {
   }
 
   openStudentForm(student?: Student) {
+    console.log(student);
     const dialogRef = this.dialog.open(StudentFormComponent, {
       height: '85%',
       width: '60%',
